@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="edu.ecu.cs.pirateplaces">
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".PiratePlaceActivity"
+            android:parentActivityName=".PiratePlaceListActivity">
+        </activity>
+        <activity android:name=".PiratePlaceListActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".PiratePlacePagerActivity"
+            android:label="@string/title_activity_pirate_place_pager"
+            android:parentActivityName=".PiratePlaceListActivity">
+        </activity>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="edu.ecu.cs.pirateplaces.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/files"/>
+        </provider>
+
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAFOpk2aSgVGwCA1UTKuqie-PRjuvATTvY"/>
+
+        <activity
+            android:name=".PirateMapsActivity"
+            android:label="AIzaSyAFOpk2aSgVGwCA1UTKuqie-PRjuvATTvY">
+            //hard coded key as new project created to retrieve key.
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.ecu.cs.pirateplaces.PiratePlaceListActivity"/>
+            //hard coded key as new project created to retrieve key.
+        </activity>
+    </application>
+
+</manifest>
